@@ -1,0 +1,8 @@
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <%= user.name %> | 
+  <span style="color: <%= user.active? ? 'green' : 'red' %>">
+    <%= user.active? ? 'ativo' : 'inativo' %>
+  </span><br>
+<% end %>

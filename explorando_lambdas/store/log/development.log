@@ -1,0 +1,196 @@
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE "store_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "store_test" ENCODING = 'unicode'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (58.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "store_development"[0m
+  [1m[35m (93.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "store_test"[0m
+  [1m[35m (705.9ms)[0m  [1m[35mCREATE DATABASE "store_development" ENCODING = 'unicode'[0m
+  [1m[35m (612.4ms)[0m  [1m[35mCREATE DATABASE "store_test" ENCODING = 'unicode'[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1042603844265157860)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (2.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-01-24 03:05:19.076305', '2025-01-24 03:05:19.076309') RETURNING "key"[0m
+Migrating to CreateUsers (20250124030342)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "active" boolean DEFAULT FALSE, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250124030342') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1042603844265157860)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "A"], ["active", false], ["created_at", "2025-01-24 03:05:37.271609"], ["updated_at", "2025-01-24 03:05:37.271609"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "B"], ["active", true], ["created_at", "2025-01-24 03:05:37.279653"], ["updated_at", "2025-01-24 03:05:37.279653"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "C"], ["active", false], ["created_at", "2025-01-24 03:05:37.285143"], ["updated_at", "2025-01-24 03:05:37.285143"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "D"], ["active", false], ["created_at", "2025-01-24 03:05:37.290757"], ["updated_at", "2025-01-24 03:05:37.290757"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "E"], ["active", true], ["created_at", "2025-01-24 03:05:37.308196"], ["updated_at", "2025-01-24 03:05:37.308196"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "active", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "F"], ["active", false], ["created_at", "2025-01-24 03:05:37.315906"], ["updated_at", "2025-01-24 03:05:37.315906"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1 /* loading for pp */ LIMIT $2[0m  [["active", true], ["LIMIT", 11]]
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."active" = $1[0m  [["active", true]]
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:08:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-3.2.1/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-3.2.1/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 378)
+Completed 200 OK in 28ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 7927)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:08:26 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2262)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2356)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3347)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>Users</h1>
+    2: 
+    3: <% @users.each do |user| %>
+    4:   <%= user.active? ? 'ativo' : 'inativo' %><%= user.name %><br>
+    5: <% end %>
+  
+app/views/home/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:08:41 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 28.7ms | Allocations: 9219)
+  Rendered layout layouts/application.html.erb (Duration: 493.4ms | Allocations: 103916)
+Completed 200 OK in 509ms (Views: 484.8ms | ActiveRecord: 10.1ms | Allocations: 110619)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:08:52 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 3294)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 20379)
+Completed 200 OK in 44ms (Views: 35.5ms | ActiveRecord: 5.6ms | Allocations: 21861)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:09:06 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 3224)
+  Rendered layout layouts/application.html.erb (Duration: 67.6ms | Allocations: 17862)
+Completed 200 OK in 75ms (Views: 64.4ms | ActiveRecord: 5.9ms | Allocations: 19340)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:10:37 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 3319)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 17860)
+Completed 200 OK in 33ms (Views: 24.5ms | ActiveRecord: 5.7ms | Allocations: 19341)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:10:58 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", true]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3676)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 18359)
+Completed 200 OK in 45ms (Views: 34.5ms | ActiveRecord: 5.5ms | Allocations: 20539)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:11:03 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", false]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 17482)
+Completed 200 OK in 29ms (Views: 20.0ms | ActiveRecord: 6.0ms | Allocations: 19345)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:12:14 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", true]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2924)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 17604)
+Completed 200 OK in 34ms (Views: 25.3ms | ActiveRecord: 5.3ms | Allocations: 19504)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:13:10 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", true]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2905)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 17388)
+Completed 200 OK in 29ms (Views: 19.4ms | ActiveRecord: 5.6ms | Allocations: 19372)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:13:48 -0300
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 842)
+
+
+  
+SyntaxError (/home/xita/Desktop/blocks_procs_lambdas/explorando_lambdas/store/app/models/user.rb:3: syntax error, unexpected '.'
+...pe :only_non_actives, -> { not.only_actives }
+...                              ^
+):
+  
+app/models/user.rb:3: syntax error, unexpected '.'
+app/controllers/home_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:13:59 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", true]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 17595)
+Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 5.5ms | Allocations: 19618)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-24 00:14:10 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."active" = $1[0m  [["active", false]]
+  ↳ app/views/home/index.html.erb:3
+  Rendered home/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2960)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 17584)
+Completed 200 OK in 33ms (Views: 22.0ms | ActiveRecord: 6.6ms | Allocations: 19569)
+
+
